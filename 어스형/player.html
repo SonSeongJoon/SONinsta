@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Audio Player</title>
+  <style>
+    /* 플레이어 컨테이너 스타일 */
+    #player-container {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; /* 원 형태 */
+      background-color: lightgrey; /* 배경색 */
+      display: flex; /* 플렉스박스 사용 */
+      justify-content: center; /* 중앙 정렬 */
+      align-items: center; /* 중앙 정렬 */
+      cursor: pointer; /* 마우스 포인터 모양 */
+    }
+
+    /* 플레이어 컨테이너의 전에 아이콘 설정 */
+    #player-container:before {
+      content: "🔊"; /* 아이콘 */
+      font-size: 20px; /* 아이콘 크기 */
+    }
+
+    /* 바디 기본 스타일 */
+    body {
+      margin: 0;
+    }
+
+    /* 오디오 링크 인풋 스타일 (숨김) */
+    input#audioLink {
+      opacity: 0; /* 투명도 */
+      position: absolute; /* 절대 위치 */
+    }
+  </style>
+</head>
+<body>
+<!-- 기본 오디오 플레이어 -->
+<audio controls>
+  <source src="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<!-- 다운로드 링크 -->
+<p><a href="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" download>Download the MP3 file</a></p>
+
+<!-- 링크 복사 버튼 -->
+<button onclick="copyToClipboard()">Share</button>
+<!-- 복사될 오디오 링크 -->
+<input type="text" value="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" id="audioLink" readonly>
+
+<!-- 커스텀 오디오 플레이어 버튼 -->
+<div id="player-container" onclick="toggleAudio()"></div>
+
+<!-- 커스텀 오디오 플레이어의 실제 오디오 요소 -->
+<audio id="audio-element">
+  <source src="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" type="audio/mpeg">
+</audio>
+
+<script>
+  /* 링크 복사 함수 */
+  function copyToClipboard() {
+    var copyText = document.getElementById("audioLink");
+    copyText.style.opacity = "1"; // 임시로 보이게 함
+    copyText.select(); // 텍스트 선택
+    document.execCommand("copy"); // 복사 명령
+    copyText.style.opacity = "0"; // 다시 숨김
+    alert("Link copied to clipboard");
+  }
+
+  /* 커스텀 오디오 플레이어의 제어 함수 */
+  var audioElement = document.getElementById("audio-element");
+  var playerContainer = document.getElementById("player-container");
+
+  function toggleAudio() {
+    if (audioElement.paused) {
+      audioElement.play(); // 오디오 재생
+      playerContainer.style.backgroundColor = "lightblue"; // 배경색 변경
+    } else {
+      audioElement.pause(); // 오디오 중지
+      playerContainer.style.backgroundColor = "lightgrey"; // 배경색 변경
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<audio controls>
+    <source src="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<p><a href="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" download>Download the MP3 file</a></p>
+
+<button onclick="copyToClipboard()">Share</button>
+<input type="text" value="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" id="audioLink" readonly style="opacity: 0; position: absolute;">
+
+<script>
+    function copyToClipboard() {
+        var copyText = document.getElementById("audioLink");
+        copyText.style.opacity = "1"; // Temporary make it visible
+        copyText.select();
+        document.execCommand("copy");
+        copyText.style.opacity = "0"; // Hide it again
+        alert("Link copied to clipboard");
+    }
+</script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Audio Player</title>
+    <style>
+        #player-container {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: lightgrey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #player-container:before {
+            content: "🔊";
+            font-size: 20px;
+        }
+
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="player-container" onclick="toggleAudio()"></div>
+
+<audio id="audio-element">
+    <source src="https://docs.google.com/uc?export=open&id=10c6IqpTd_geUf8nM5RYByBVbjMhmsUeV" type="audio/mpeg">
+</audio>
+
+<script>
+    var audioElement = document.getElementById("audio-element");
+    var playerContainer = document.getElementById("player-container");
+
+    function toggleAudio() {
+        if (audioElement.paused) {
+            audioElement.play();
+            playerContainer.style.backgroundColor = "lightblue";
+        } else {
+            audioElement.pause();
+            playerContainer.style.backgroundColor = "lightgrey";
+        }
+    }
+</script>
+</body>
+</html>

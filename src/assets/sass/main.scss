@@ -1,0 +1,62 @@
+@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/libs/vars';
+@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/libs/functions';
+@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/libs/mixins';
+@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/libs/vendor';
+@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/libs/breakpoints';
+@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/libs/html-grid';
+@import 'fontawesome-all.min.css';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700');
+
+/*
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+// Breakpoints.
+
+	@include breakpoints((
+		xlarge:   ( 1281px,  1680px ),
+		large:    ( 981px,   1280px ),
+		medium:   ( 737px,   980px  ),
+		small:    ( 481px,   736px  ),
+		xsmall:   ( 361px,   480px  ),
+		xxsmall:  ( null,    360px  ),
+		xlarge-to-max:    '(min-width: 1681px)',
+		small-to-xlarge:  '(min-width: 481px) and (max-width: 1680px)'
+	));
+
+// Base.
+
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/base/reset';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/base/page';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/base/typography';
+
+// Component.
+
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/row';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/section';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/form';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/box';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/icon';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/image';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/list';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/actions';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/icons';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/contact';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/pagination';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/table';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/button';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/mini-posts';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/features';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/components/posts';
+
+// Layout.
+
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/layout/wrapper';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/layout/main';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/layout/sidebar';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/layout/header';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/layout/banner';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/layout/footer';
+	@import 'IdeaProjects/SeoulIR/IRWORKS/assets/sass/layout/menu';

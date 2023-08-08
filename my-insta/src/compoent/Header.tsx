@@ -5,7 +5,7 @@ import Link from "next/link";
 import {HomeIcon, HomeFillIcon, SearchFillIcon, SearchIcon, NewFillIcon, NewIcon} from "./ui/icons";
 import {usePathname} from "next/navigation";
 import ColorButton from "@/compoent/ui/ColorButton";
-
+import Avatar from "@/compoent/Avatar";
 const menu = [
     {
         href: '/',
@@ -25,7 +25,8 @@ const menu = [
 ]
 export default function Header() {
     const pathName = usePathname();
-    const { data: session } = useSession()
+    const { data: session } = useSession();
+    const user = session?.user;
     return (
         <header className='flex justify-between items-center px-6'>
             <Link href='/'>
@@ -40,10 +41,18 @@ export default function Header() {
                             </Link>
                         </li>
                     ))}
-                    {session ? (<ColorButton text='Sign out' onClick={()=> signOut()}/>
-                            ) : (
-                                <ColorButton text='Sign in' onClick={()=> signIn()}/>
-                            )}
+                    {user && (
+                        <li>
+                            <Link href={`/user/${user.username}`}><Avatar image={user.image}/></Link>
+                        </li>
+                    )}
+                    <li>
+                        {session ? (<ColorButton text='Sign out' onClick={()=> signOut()}/>
+                        ) : (
+                            <ColorButton text='Sign in' onClick={()=> signIn()}/>
+                        )}
+                    </li>
+
                 </ul>
             </nav>
         </header>
